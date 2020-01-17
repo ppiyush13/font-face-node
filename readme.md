@@ -9,7 +9,7 @@ Using NPM:
 npm install @font-face/node --save-dev
 ```
 
-## Background
+## Motivation
 
 - Lets admit that it is very tedious job to manually generate @font-face CSS rules with corret URL sources for a given font files stored in local project directory.
 
@@ -26,7 +26,7 @@ npm install @font-face/node --save-dev
 - Utilize output `font-face.css` with webpack loaders to include fonts in output bundle.
 
 ## Usage
-**@font-face/node** can be invoked from CLI or the API access.
+**@font-face/node** can be invoked from [CLI](#cli-usage) or [API](#api-usage)
 
 ### CLI usage
 Create a configuration file in the root project directory .
@@ -232,9 +232,7 @@ Output CSS file name.
 
 ### `output.fonts`
 Type: `List`
-
 List of font configs.
-
 Following options are available under font config:
 
 * name - Mandatory font-family name. 
@@ -246,3 +244,8 @@ Following options are available under font config:
 * unicodeRange - unicode-range
 * featureSettings - font-feature-settings
 * variationSettings - font-variation-settings
+
+## Also see
+
+    @font-face/core - Core module to create CSS @font-face rule.
+    @font-face/browser - Include fonts dynamically through configs in browser.
