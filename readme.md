@@ -205,34 +205,28 @@ Above similar output could be produced using node API as shown below:
 
 ### `input.dir`
 
-Type: `String`
-
+Type: `String`  
 Input font directory.
 
 ### `output.dir`
 
-Type: `String`
-
+Type: `String`  
 Output directory for generated CSS file. Though this option is redundant but this has been added to make it consistend with input.dir.
 
 ### `output.resourceDir`
 
-Type: `String`
-
-Default: `<input.dir>/resources`
-
+Type: `String`  
+Default: `<input.dir>/resources`  
 Fonts will be copied from `input.dir` to here. Usually this must be sub-directory within your build / dist directory.
 
 ### `output.cssFileName`
-Type: `String`
-
-Default: `font-face.css`
-
+Type: `String`  
+Default: `font-face.css`  
 Output CSS file name.
 
 ### `output.fonts`
-Type: `List`
-List of font configs.
+Type: `List`  
+List of font configs.  
 Following options are available under font config:
 
 * name - Mandatory font-family name. 
