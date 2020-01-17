@@ -4,7 +4,7 @@ import write from 'write';
 import {join} from 'path';
 import chalk from 'chalk';
 
-export default async ({inputDirPath, outputDirPath, resourceDirPath, cssFileName, cssContent}) => {
+export default async ({inputDirPath, outputDirPath, resourceDirPath, cssFileName = 'font-face.css', cssContent}) => {
     await makeDir(resourceDirPath);
 
     const inputDirPathGlob = join(inputDirPath, '**');
