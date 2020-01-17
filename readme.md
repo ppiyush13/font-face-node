@@ -11,15 +11,19 @@ npm install @font-face/node --save-dev
 
 ## Background
 
-- Lets admit that it is very tedious job to manually generate @font-face CSS rules with corret URL source for a given font files stored in local project directory.
+- Lets admit that it is very tedious job to manually generate @font-face CSS rules with corret URL sources for a given font files stored in local project directory.
 
-- In order to apply fonts across all browser vendors, we may need to maintain more that one font format. This aggrevates the issue further.
+- In order to apply fonts across all the browsers, we may need to maintain more that one font format.
 
-- Online interactive web directory for fonts, like Google Fonts, auto generates CSS stylesheet with @font-face rules making it quite popular amoung front-ends developers.
+- Online interactive web directory for fonts, like Google Fonts, auto generates CSS stylesheet with @font-face rules,  making it quite popular amoung front-ends developers.
 
-- For locally stored font files, **@font-face/node** is an attempt to auto generate @font-face rules with given configurations to relieve developers from manually configuring for every project.
+- For locally stored font files, **@font-face/node** is an attempt to auto generate @font-face rules with given configurations to relieve developers from manually configuring fonts for every project.
 
-- **@font-face/node** also copies font files to build / dist directory provided on configurations.
+- **@font-face/node** scans input font directory (provided in configs) and produces appropriate `src` CSS descriptor for various font formats like `eot`, `woff`, `woff2` and `svg` 
+
+- **@font-face/node** also copies font files to build / dist directory provided in configs.
+
+- Utilize output `font-face.css` with webpack loaders to include fonts in output bundle.
 
 ## Usage
 **@font-face/node** can be invoked from CLI or the API access.
@@ -126,36 +130,36 @@ Upon executing **font-face** command we get following directory structure:
                 * Roboto-Regular.ttf
                 * Roboto-Regular.woff2
 
-And contents of **font-face.css** are as follows:
+Contents of **font-face.css**:
 
 ```css
-@font-face { 
-    font-family: 'Roboto'; 
-    font-weight: 200; 
-    font-style: normal; 
-    src: url('fonts/Roboto-Light.woff2') format('woff2') , 
-         url('fonts/Roboto-Light.ttf') format('truetype'); 
-}
-@font-face { 
-    font-family: 'Roboto'; 
-    font-weight: 400; 
-    font-style: normal; 
-    src: url('fonts/Roboto-Regular.woff2') format('woff2') , 
-         url('fonts/Roboto-Regular.ttf') format('truetype'); 
-}
-@font-face { 
-    font-family: 'Roboto'; 
-    font-weight: 600; 
-    font-style: bold; 
-    src: url('fonts/Roboto-Medium.woff2') format('woff2') ,
-         url('fonts/Roboto-Medium.ttf') format('truetype'); 
-}
+    @font-face { 
+        font-family: 'Roboto'; 
+        font-weight: 200; 
+        font-style: normal; 
+        src: url('fonts/Roboto-Light.woff2') format('woff2') , 
+            url('fonts/Roboto-Light.ttf') format('truetype'); 
+    }
+    @font-face { 
+        font-family: 'Roboto'; 
+        font-weight: 400; 
+        font-style: normal; 
+        src: url('fonts/Roboto-Regular.woff2') format('woff2') , 
+            url('fonts/Roboto-Regular.ttf') format('truetype'); 
+    }
+    @font-face { 
+        font-family: 'Roboto'; 
+        font-weight: 600; 
+        font-style: bold; 
+        src: url('fonts/Roboto-Medium.woff2') format('woff2') ,
+            url('fonts/Roboto-Medium.ttf') format('truetype'); 
+    }
 ```
 
 > Please note:
-
-    1. Actual output does not include newlines, for verbosity it has been added here.
-    2. Depending on your platform , ie win32 or posix, appropriate path will be generated.
+>
+>    1. Actual output does not include newlines, for verbosity it has been added here.
+>    2. Depending on your platform , ie win32 or posix, appropriate path with appropriate slash will be generated.
 
 ### API usage
 
