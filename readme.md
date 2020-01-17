@@ -29,8 +29,8 @@ npm install @font-face/node --save-dev
 **@font-face/node** can be invoked from [CLI](#cli-usage) or [API](#api-usage)
 
 ### CLI usage
-Create a configuration file in the root project directory .
-**@font-face/node** uses cosmiconfig to read a configuration which can be configured with any of the following names:
+Create a configuration file in the root project directory.  
+**@font-face/node** uses [cosmiconfig][cosmiconfig] to read a configuration which can be configured with any of the following names:
 
 - .font-facerc
 - .font-facerc.json
@@ -243,3 +243,6 @@ Following options are available under font config:
 
     @font-face/core - Core module to create CSS @font-face rule.
     @font-face/browser - Include fonts dynamically through configs in browser.
+
+
+[cosmiconfig]: https://github.com/davidtheclark/cosmiconfig
