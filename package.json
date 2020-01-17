@@ -1,7 +1,7 @@
 {
     "name": "@font-face/node",
     "version": "1.0.0",
-    "description": "",
+    "description": "Gerenate @font-face CSS stylesheet like a pro !!",
     "main": "src/execute.js",
     "bin": {
         "font-face": "bin/font-face.js"

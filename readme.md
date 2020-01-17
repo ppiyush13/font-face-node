@@ -1,6 +1,6 @@
 # @font-face/node
 
-Gerenate @font-face CSS stylesheet like a pro !!
+Generate @font-face CSS stylesheet like a pro !!
 
 ## Install
 
@@ -11,17 +11,22 @@ npm install @font-face/node --save-dev
 
 ## Background
 
-    - Lets admit that it is very tedious job to manually generate @font-face CSS rules with corret URL source for a given font files stored in local project directory. 
-    - In order to apply fonts across all browser vendors, we may need to maintain more that one font format. This aggrevates the issue further.
-    - Online interactive web directory for fonts, like Google Fonts, auto generates CSS stylesheet with @font-face rules making it quite popular amoung front-ends developers.
-    - For locally stored font files, *@font-face/node* is an attempt to auto generate @font-face rules with given configurations to relieve developers from manually configuring for every project.
+- Lets admit that it is very tedious job to manually generate @font-face CSS rules with corret URL source for a given font files stored in local project directory.
+
+- In order to apply fonts across all browser vendors, we may need to maintain more that one font format. This aggrevates the issue further.
+
+- Online interactive web directory for fonts, like Google Fonts, auto generates CSS stylesheet with @font-face rules making it quite popular amoung front-ends developers.
+
+- For locally stored font files, **@font-face/node** is an attempt to auto generate @font-face rules with given configurations to relieve developers from manually configuring for every project.
+
+- **@font-face/node** also copies font files to build / dist directory provided on configurations.
 
 ## Usage
-*@font-face/node* can be invoked from CLI or the API access.
+**@font-face/node** can be invoked from CLI or the API access.
 
 ### CLI usage
 Create a configuration file in the root project directory .
-*@font-face/node* uses cosmiconfig to read a configuration which can be configured with any following names:
+**@font-face/node** uses cosmiconfig to read a configuration which can be configured with any of the following names:
 
 - .font-facerc
 - .font-facerc.json
@@ -31,7 +36,7 @@ Create a configuration file in the root project directory .
 - font-face.config.js
 - fontFace in package.json
 
-And then simple generate CSS file with command:
+And then simply execute:
 ```
 $ font-face
 ```
@@ -44,6 +49,8 @@ $ npx font-face
 Lets assume we have following directory structure:
 
     - Root
+        * font-face.config.js
+        * package.json
         - node_modules
         - src
             - fonts
@@ -53,6 +60,9 @@ Lets assume we have following directory structure:
                 * Roboto-Medium.woff2
                 * Roboto-Regular.ttf
                 * Roboto-Regular.woff2
+
+    - indicates directory
+    * indicates file
 
 We have defined configurations as follows:
 
@@ -91,10 +101,12 @@ module.exports = {
 };
 ```
 
-Upon executing *font-face* command we get following directory structure:
+Upon executing **font-face** command we get following directory structure:
 
 
     - Root
+        * font-face.config.js
+        * package.json
         - node_modules
         - dist
             * font-face.css
@@ -114,7 +126,7 @@ Upon executing *font-face* command we get following directory structure:
                 * Roboto-Regular.ttf
                 * Roboto-Regular.woff2
 
-And contents of *font-face.css* are as follows:
+And contents of **font-face.css** are as follows:
 
 ```css
 @font-face { 
@@ -141,12 +153,14 @@ And contents of *font-face.css* are as follows:
 ```
 
 > Please note:
+
     1. Actual output does not include newlines, for verbosity it has been added here.
     2. Depending on your platform , ie win32 or posix, appropriate path will be generated.
 
 ### API usage
 
-Similar output could be produced using node API as shown below:
+**@font-face/node** exports a function which will generate CSS file and copy fonts to dist / build folder.
+Above similar output could be produced using node API as shown below:
 
 ```js
     const fontFaceNode = require('@font-face/node');
@@ -188,26 +202,33 @@ Similar output could be produced using node API as shown below:
 ### `input.dir`
 
 Type: `String`
-Specify input font directory to scan.
+
+Input font directory.
 
 ### `output.dir`
 
 Type: `String`
+
 Output directory for generated CSS file. Though this option is redundant but this has been added to make it consistend with input.dir.
 
 ### `output.resourceDir`
 
 Type: `String`
+
 Default: `<input.dir>/resources`
+
 Fonts will be copied from `input.dir` to here. Usually this must be sub-directory within your build / dist directory.
 
 ### `output.cssFileName`
 Type: `String`
+
 Default: `font-face.css`
+
 Output CSS file name.
 
 ### `output.fonts`
 Type: `List`
+
 List of font configs.
 
 Following options are available under font config:
