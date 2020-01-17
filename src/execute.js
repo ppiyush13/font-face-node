@@ -4,6 +4,7 @@ import pkgDir from 'pkg-dir';
 import {dirname, resolve} from 'path';
 import NodeDirectoryContext from './nodeDirectoryContext';
 import createResources from './createResources';
+import cssComments from './cssComments';
 
 export default async({config, filepath}) => {
     // find out app root of caller module
@@ -18,10 +19,12 @@ export default async({config, filepath}) => {
     const outputDirPath = resolve(appRoot, outputDir);
     const resourceDirPath = resolve(appRoot, resourceDir || resolve(outputDirPath, 'resources'));
 
-    const cssContent = fontfaceCore({
+    const rawCss = fontfaceCore({
         directoryContext: new NodeDirectoryContext({inputDirPath, outputDirPath, resourceDirPath}),
         fonts,
     });
+
+    const cssContent = cssComments + '\n' + rawCss;
 
     await createResources({
         inputDirPath, outputDirPath, resourceDirPath, cssFileName, cssContent, 
