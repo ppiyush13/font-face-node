@@ -45,6 +45,7 @@
         "make-dir": "^3.0.0",
         "path-exists": "^4.0.0",
         "pkg-dir": "^4.2.0",
+        "relative-cjs": "^1.0.3",
         "write": "^2.0.0"
     },
     "devDependencies": {

@@ -1,5 +1,6 @@
 import pathExists from 'path-exists';
-import {resolve, relative} from 'path';
+import {resolve} from 'path';
+import relative from 'relative-cjs';
 
 export default function NodeDirectoryContext({inputDirPath, outputDirPath, resourceDirPath}) {
     this.inputDirPath = inputDirPath;
