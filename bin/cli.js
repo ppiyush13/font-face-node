@@ -3,8 +3,8 @@ import {version} from '../package.json';
 import fontface from '../src';
 
 program
-    .version(version, '-v, --version', 'qubix version')
-    .description('Create micro-frontend bundle with a breeze')
+    .version(version, '-v, --version', 'font-face version')
+    .description('Tool to generate font-face stylesheet')
     .action(() => {
         fontface();
     });
