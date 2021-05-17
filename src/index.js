@@ -1,9 +1,9 @@
-import {  cosmiconfigSync } from 'cosmiconfig';
+import { cosmiconfigSync } from 'cosmiconfig';
 import execute from './execute';
 
 export default () => {
     const explorerSync = cosmiconfigSync('font-face');
-    const {config, filepath} = explorerSync.search();
+    const { config } = explorerSync.search();
 
-    return execute({config, filepath});
+    return execute(config);
 }

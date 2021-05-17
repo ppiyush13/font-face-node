@@ -6,9 +6,9 @@ import NodeDirectoryContext from './nodeDirectoryContext';
 import createResources from './createResources';
 import cssComments from './cssComments';
 
-export default async({config, filepath}) => {
+export default async(config) => {
     // find out app root of caller module
-    const appRoot = pkgDir.sync(dirname(filepath));
+    const appRoot = pkgDir.sync();
     console.log(chalk.cyan('Found app root as '), chalk.green(appRoot));
 
     const {input, output, fonts} = config;

@@ -1,40 +1,44 @@
 {
     "name": "@font-face/node",
     "version": "1.0.3",
-    "description": "Gerenate @font-face CSS stylesheet like a pro !!",
-    "main": "src/execute.js",
-    "bin": {
-        "font-face": "bin/font-face.js"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\"",
-        "release": "np --no-yarn --no-cleanup --no-2fa"
-    },
-    "files": [
-        "bin",
-        "src"
-    ],
-    "author": {
-        "name": "Piyush Lodaya",
-        "email": "ppiyush13@gmail.com"
-    },
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ppiyush13/font-face-node.git"
-    },
-    "bugs": {
-        "url": "https://github.com/ppiyush13/font-face-node/issues"
-    },
-    "homepage": "https://github.com/ppiyush13/font-face-node",
+    "description": "Generate @font-face CSS stylesheets like a pro !!",
     "keywords": [
         "font-face",
         "fontface",
+        "stylesheets",
         "CSS",
         "@font-face/node",
         "@font-face",
         "core"
     ],
+    "homepage": "https://github.com/ppiyush13/font-face-node",
+    "bugs": {
+        "url": "https://github.com/ppiyush13/font-face-node/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ppiyush13/font-face-node.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Piyush Lodaya",
+        "email": "ppiyush13@gmail.com"
+    },
+    "main": "dist/font-face-node.js",
+    "source": "src/execute.js",
+    "bin": {
+        "font-face": "bin/font-face.js"
+    },
+    "files": [
+        "bin",
+        "src",
+        "dist"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\"",
+        "build": "microbundle --no-compress --format cjs --target node --no-sourcemap",
+        "release": "np --no-yarn --no-cleanup --no-2fa"
+    },
     "dependencies": {
         "@font-face/core": "^1.0.0",
         "chalk": "^3.0.0",
@@ -49,6 +53,7 @@
         "write": "^2.0.0"
     },
     "devDependencies": {
+        "microbundle": "^0.13.0",
         "np": "^5.2.1"
     }
 }
