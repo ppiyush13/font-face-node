@@ -1,6 +1,6 @@
 {
     "name": "@font-face/node",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "Generate @font-face CSS stylesheets like a pro !!",
     "keywords": [
         "font-face",
