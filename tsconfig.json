@@ -1,0 +1,13 @@
+{
+    "include": ["src/**/*", "setup-tests-after-env.ts"],
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "allowJs": true,
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "declaration": false,
+        "declarationDir": null,
+        "resolveJsonModule": true
+    }
+}
